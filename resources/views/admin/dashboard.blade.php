@@ -1,5 +1,7 @@
 @extends('layouts.admin')
-
+@section('title','Kelola Event - Admin')
+@section('page_title','Dashboard')
+@section('page_subtitle','Ringkasan Transaksi')
 @section('content')
 <!-- Main Content -->
     <main class="flex-1 p-10 overflow-y-auto">
