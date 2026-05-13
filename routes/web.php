@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\Admin\EventController as EventAdminController;
+use App\Http\Controllers\PartnerController;
+
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/event/1', [EventController::class, 'show'])->name('events.show');
@@ -34,3 +36,20 @@ Route::get('/bantuan', function() {
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('events', EventAdminController::class);
 });
+
+
+Route::get('/admin/partners', [PartnerController::class, 'index']);
+Route::get('/admin/partners/create', [PartnerController::class, 'create']);
+Route::post('/admin/partners/store', [PartnerController::class, 'store']);
+
+Route::prefix('admin')->group(function () {
+
+    Route::get('/partners', [PartnerController::class, 'index'])
+        ->name('admin.partners.index');
+
+    Route::get('/partners/create', [PartnerController::class, 'create'])
+        ->name('admin.partners.create');
+
+    Route::post('/partners/store', [PartnerController::class, 'store'])
+        ->name('admin.partners.store');
+        });

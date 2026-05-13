@@ -125,5 +125,35 @@
 
 
 </section>
+<!-- Partners Section -->
+<section class="max-w-7xl mx-auto px-6 py-20">
 
+    <div class="text-center mb-12">
+        <h2 class="text-3xl font-extrabold mb-2">Partner Kami</h2>
+        <p class="text-slate-500 font-medium">
+            Brand & perusahaan yang bekerja sama dengan kami
+        </p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+
+        @forelse($partners as $partner)
+            <div class="bg-white border border-slate-100 rounded-2xl p-6 flex items-center justify-center shadow-sm hover:shadow-xl transition group">
+
+                <img
+                    src="{{ $partner->logo_url }}"
+                    alt="{{ $partner->name }}"
+                    class="h-12 object-contain grayscale group-hover:grayscale-0 group-hover:scale-110 transition duration-300"
+                />
+
+            </div>
+        @empty
+            <div class="col-span-full text-center text-slate-400">
+                Belum ada partner tersedia
+            </div>
+        @endforelse
+
+    </div>
+
+</section>
 @endsection
